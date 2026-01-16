@@ -17,6 +17,13 @@ about:
     - icon: envelope-at
       text: Email
       href: mailto:melser@student.ubc.ca
+      
+format:
+  html:
+    theme: Journal
+    css: styles.css
+    toc: true
 ---
 
 This is a Stiff Yellow Flax plant.
+
