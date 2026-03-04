@@ -1,29 +1,25 @@
 ---
 title: "Abbey Kealey"
-image: images/stiff_yellow_flax.jpg
+image: images/Abbey_headshot.jpg
 about:
   template: trestles
   image-width: 20em
   links: 
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/in/ramon-melser-666932129/
-    - icon: twitter
-      text: Twitter/X
-      href: https://x.com/MelserRamon
-    - icon: github
-      text: GitHub
-      href: https://github.com/ramonmelser
+      href: https://www.linkedin.com/in/abbey-kealey-405473204/
     - icon: envelope-at
       text: Email
-      href: mailto:melser@student.ubc.ca
+      href: mailto:abbeykealey@gmail.com
       
 format:
   html:
-    theme: Journal
+    theme: lux
     css: styles.css
     toc: true
 ---
 
-This is a Stiff Yellow Flax plant.
+ABOUT ME
+
+I am currently a Master of Geomatics for Environmental Management (MGEM) student at UBC with a background in environmental and computer science.  
 

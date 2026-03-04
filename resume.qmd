@@ -2,38 +2,83 @@
 title: "Resume"
 ---
 
-# Education
 
--   List your education here.
+# Education & Certificates  
+#### University of British Columbia  
+<span style="font-size:0.9em">*Vancouver, BC | 07/2025 - present*</span>  
+Masters of Geomatics for Environmental Management (MGEM)  
 
-# Publications
 
-*Peer-reviewed publications:*
+#### Concordia University  
+<span style="font-size:0.9em">*Montreal, QC | 08/2023 | 05/2022*</span>  
+Graduate Diploma in Computer Science (GrDip)  
+Honours Bachelor of Environmental Science (BSc)  
 
--   List any peer-reviewed publications here.
 
-*Reports:*
+#### Heritage College  
+<span style="font-size:0.9em">*Gatineau, QC | 05/2018* </span>  
+DEC in Sciences  
 
--   List any non-peer reviewed materials you'd like to share here.
 
-# Conferences & Talks
 
-*Invited Talks*
+# Skills
 
--   If you've been invited to speak in a professional setting, list that here.
+<span style="color:#FF6F61">★</span> Bilingual (English/French)  
+<span style="color:#6B5B95">★</span> GIS (ArcGIS Pro, QGIS)  
+<span style="color:#88B04B">★</span> Programming (Python, R, JavaScript)  
+<span style="color:#F7CAC9">★</span> Spatial data processing and analysis  
+<span style="color:#92A8D1">★</span> Strong verbal and written communication  
+<span style="color:#FFA500">★</span> Exceptional problem-solving
 
-*Conference Presentations*
 
--   If the presentation was at a conference, list them here.
+
+# Work Experience
+
+<span style="font-size:1.5em">The Climate Reality Project Canada</span>  
+<span style="font-size:1.1em">Accounting & Administration Coordinator | May 2024 - present  
+Digital Content Coordinator | August 2023 – May 2024</span>  
+<span style="font-size:0.9em; font-style:italic;">Montreal, Quebec</span>  
+
+• Assisted with budget preparation, payroll management, and accounts payable/receivable, including processing payments and issuing cheques.  
+• Performed monthly bank reconciliation, prepared financial reports, and ensured compliance with IT and HR protocols.  
+• Created and edited digital content for social media, newsletters, and the website, including content in both English and French.  
+• Developed an interactive dashboard, providing a user-friendly interface for stakeholders to engage with important data.  
+• Managed large datasets by performing data cleaning, updating records in the database, and entering new data with a focus on accuracy and efficiency.
+
+
+<span style="font-size:1.5em">Community Knowledge Exchange</span>  
+<span style="font-size:1.1em">Operations Coordinator</span>  
+<span style="font-size:0.9em; font-style:italic;">Remote | Ottawa, Ontario | 06/2022 – 08/2022</span>  
+
+• Collaborated closely with the managing director to develop and maintain values-aligned administrative processes.  
+• Supported the development and shaping of programming shifts towards a more community-centered and decolonial approach.  
+• Worked closely with team members to coordinate and track activities and contributions to the organization’s annual strategic goals.  
+• Identified fund and partnership opportunities, which included working with the team to develop engagement strategies.
+
+
+<span style="font-size:1.5em">Shared Services Canada</span>  
+<span style="font-size:1.1em">Project Management & Delivery Branch - Administrative Assistant to The Director</span>  
+<span style="font-size:0.9em; font-style:italic;">Remote | Ottawa, Ontario | 06/2019 – 08/2021</span>  
+
+• Monitored supervisor’s work calendar and scheduled appointments, meetings, and travel.  
+• Tracked the completion of key deliverables to ensure deadlines were met consistently.  
+• Monitored supervisor’s inbox and wrote emails on their behalf.  
+• Facilitated onboarding and offboarding of employees and consultants.  
+• Produced accurate office files, updated spreadsheets, and crafted presentations to support co-workers.  
+• Restocked supplies and placed purchase orders.
 
 # Awards & Honors
 
--   List any scholarships, bursaries, etc.
+<span style="color:#FF6F61">★</span> **David Frost Memorial Scholarship (2022)**  
+For academic excellence in the Environmental Science Honours program.
 
-# Teaching Assistantships
+<span style="color:#6B5B95">★</span> **Arts and Science Scholar, Department of Geography, Planning and Environment (2022)**  
+For being a top student (1%) in the department.
 
--   List any TA positions you may have held.
 
-# Institutional Service
+# Volunteer Activities
 
--   Volunteering etc.
+#### Moose Hide Campaign
+Indigenous grassroots anti-violence organization
+
+
