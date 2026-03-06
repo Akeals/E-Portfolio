@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Resume – Abbey Kealey</title>
+<title>LiDAR Processing and Forest Attribute Modeling – Abbey Kealey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -94,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./resume.html" aria-current="page"> 
+    <a class="nav-link" href="./resume.html"> 
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
@@ -116,25 +151,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#education-certificates" id="toc-education-certificates" class="nav-link active" data-scroll-target="#education-certificates">Education &amp; Certificates</a></li>
-  <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a></li>
-  <li><a href="#work-experience" id="toc-work-experience" class="nav-link" data-scroll-target="#work-experience">Work Experience</a></li>
-  <li><a href="#awards-honors" id="toc-awards-honors" class="nav-link" data-scroll-target="#awards-honors">Awards &amp; Honors</a></li>
-  <li><a href="#volunteer-activities" id="toc-volunteer-activities" class="nav-link" data-scroll-target="#volunteer-activities">Volunteer Activities</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Resume</h1>
+<h1 class="title">LiDAR Processing and Forest Attribute Modeling</h1>
 </div>
 
 
@@ -151,77 +176,53 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="education-certificates" class="level1">
-<h1>Education &amp; Certificates</h1>
-<section id="university-of-british-columbia" class="level4">
-<h4 class="anchored" data-anchor-id="university-of-british-columbia">University of British Columbia</h4>
-<p><span style="font-size:0.9em"><em>Vancouver, BC | 07/2025 - present</em></span><br>
-Masters of Geomatics for Environmental Management (MGEM)</p>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>In this advanced remote sensing lab, raw lidar point cloud data was used to predict Above Ground Biomass (AGB) and dominant tree height across Alex Fraser Research Forest (AFRF). The workflow involved cleaning and processing the LiDAR data using the lidR package, generating key products such as Digital Elevation Models (DEMs) and Canopy Height Models (CHMs), and calculating plot-level LiDAR metrics. These metrics were then used to develop a statistical model, which was applied to produce wall-to-wall predictions of AGB and dominant tree height across the forest.</p>
 </section>
-<section id="concordia-university" class="level4">
-<h4 class="anchored" data-anchor-id="concordia-university">Concordia University</h4>
-<p><span style="font-size:0.9em"><em>Montreal, QC | 08/2023 | 05/2022</em></span><br>
-Graduate Diploma in Computer Science (GrDip)<br>
-Honours Bachelor of Environmental Science (BSc)</p>
+<section id="basic-lidar-processing" class="level4">
+<h4 class="anchored" data-anchor-id="basic-lidar-processing">Basic Lidar Processing</h4>
+<p>The raw LiDAR point cloud data, provided as multiple .las tiles, were loaded into a LAS catalog to enable processing all tiles together. The dataset was inspected for quality issues, and duplicate points were removed to ensure accurate analysis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lidR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create LAScatalog object from AFRF las tiles</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>cat_afrf <span class="ot">&lt;-</span> <span class="fu">readLAScatalog</span>(<span class="st">"Data/LAS"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the LAScatalog for potential issues</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">las_check</span>(cat_afrf)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove duplicate points to improve processing efficiency</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>filtered_cat_afrf <span class="ot">&lt;-</span> <span class="fu">filter_duplicates</span>(cat_afrf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="heritage-college" class="level4">
-<h4 class="anchored" data-anchor-id="heritage-college">Heritage College</h4>
-<p><span style="font-size:0.9em"><em>Gatineau, QC | 05/2018</em> </span><br>
-DEC in Sciences</p>
+<section id="ground-and-canopy-modeling" class="level4">
+<h4 class="anchored" data-anchor-id="ground-and-canopy-modeling">Ground and Canopy Modeling</h4>
+<p>Next, a Digital Elevation Model (DEM) was generated to represent the ground surface, allowing separation of ground points from vegetation and other non-ground features. The DEM was created using the tin() algorithm and rasterize_terrain() function. Because the raw LiDAR data was not normalized, the DEM was used to normalize the point cloud, which was then used to produce a Canopy Height Model (CHM) using the p2r (point-to-raster) method.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create DEM with tin algorithm</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dem_afrf <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(filtered_cat_afrf, <span class="dv">2</span>, <span class="fu">tin</span>())</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#normalize all tiles in cat_afrf with the DEM </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>norm_tiles_afrf <span class="ot">&lt;-</span> <span class="fu">normalize_height</span>(filtered_cat_afrf, dem_afrf)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Create CHM for all normalized AFRF Tiles using p2r algorithm</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>chm_afrf <span class="ot">&lt;-</span> <span class="fu">rasterize_canopy</span>(norm_cat_afrf, <span class="dv">2</span>, <span class="fu">p2r</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/DEM_plot.png" class="img-fluid" alt="DEM of AFRF"> <em>Figure 1: Digital Elevation Model (DEM) of AFRF</em></p>
+<p><img src="images/CHM_plot.png" class="img-fluid" alt="CHM of AFRF"> <em>Figure 2: Canopy Height Model (CHM) of AFRF</em></p>
 </section>
-</section>
-<section id="skills" class="level1">
-<h1>Skills</h1>
-<p><span style="color:#FF6F61">★</span> Bilingual (English/French)<br>
-<span style="color:#6B5B95">★</span> GIS (ArcGIS Pro, QGIS)<br>
-<span style="color:#88B04B">★</span> Programming (Python, R, JavaScript)<br>
-<span style="color:#F7CAC9">★</span> Spatial data processing and analysis<br>
-<span style="color:#92A8D1">★</span> Strong verbal and written communication<br>
-<span style="color:#FFA500">★</span> Exceptional problem-solving</p>
-</section>
-<section id="work-experience" class="level1">
-<h1>Work Experience</h1>
-<p><span style="font-size:1.5em">The Climate Reality Project Canada</span><br>
-<span style="font-size:1.1em">Accounting &amp; Administration Coordinator | May 2024 - present<br>
-Digital Content Coordinator | August 2023 – May 2024</span><br>
-<span style="font-size:0.9em; font-style:italic;">Montreal, Quebec</span></p>
-<p>• Assisted with budget preparation, payroll management, and accounts payable/receivable, including processing payments and issuing cheques.<br>
-• Performed monthly bank reconciliation, prepared financial reports, and ensured compliance with IT and HR protocols.<br>
-• Created and edited digital content for social media, newsletters, and the website, including content in both English and French.<br>
-• Developed an interactive dashboard, providing a user-friendly interface for stakeholders to engage with important data.<br>
-• Managed large datasets by performing data cleaning, updating records in the database, and entering new data with a focus on accuracy and efficiency.</p>
-<p><span style="font-size:1.5em">Community Knowledge Exchange</span><br>
-<span style="font-size:1.1em">Operations Coordinator</span><br>
-<span style="font-size:0.9em; font-style:italic;">Remote | Ottawa, Ontario | 06/2022 – 08/2022</span></p>
-<p>• Collaborated closely with the managing director to develop and maintain values-aligned administrative processes.<br>
-• Supported the development and shaping of programming shifts towards a more community-centered and decolonial approach.<br>
-• Worked closely with team members to coordinate and track activities and contributions to the organization’s annual strategic goals.<br>
-• Identified fund and partnership opportunities, which included working with the team to develop engagement strategies.</p>
-<p><span style="font-size:1.5em">Shared Services Canada</span><br>
-<span style="font-size:1.1em">Project Management &amp; Delivery Branch - Administrative Assistant to The Director</span><br>
-<span style="font-size:0.9em; font-style:italic;">Remote | Ottawa, Ontario | 06/2019 – 08/2021</span></p>
-<p>• Monitored supervisor’s work calendar and scheduled appointments, meetings, and travel.<br>
-• Tracked the completion of key deliverables to ensure deadlines were met consistently.<br>
-• Monitored supervisor’s inbox and wrote emails on their behalf.<br>
-• Facilitated onboarding and offboarding of employees and consultants.<br>
-• Produced accurate office files, updated spreadsheets, and crafted presentations to support co-workers.<br>
-• Restocked supplies and placed purchase orders.</p>
-</section>
-<section id="awards-honors" class="level1">
-<h1>Awards &amp; Honors</h1>
-<p><span style="color:#FF6F61">★</span> <strong>David Frost Memorial Scholarship (2022)</strong><br>
-For academic excellence in the Environmental Science Honours program.</p>
-<p><span style="color:#6B5B95">★</span> <strong>Arts and Science Scholar, Department of Geography, Planning and Environment (2022)</strong><br>
-For being a top student (1%) in the department.</p>
-</section>
-<section id="volunteer-activities" class="level1">
-<h1>Volunteer Activities</h1>
-<section id="moose-hide-campaign" class="level4">
-<h4 class="anchored" data-anchor-id="moose-hide-campaign">Moose Hide Campaign</h4>
-<p>Indigenous grassroots anti-violence organization</p>
+<section id="estimate-forest-attributes-model-development" class="level4">
+<h4 class="anchored" data-anchor-id="estimate-forest-attributes-model-development">Estimate Forest Attributes &amp; Model Development</h4>
+<p>To estimate forest attributes, 38 plots were extracted across the study area, each with a radius of 30 meters. For each plot, a set of standard LiDAR metrics was calculated using the cloud_metrics() function from the lidR package. These metrics summarize key structural properties of the forest, including canopy height percentiles, variability in height, and point cloud density.</p>
+<p>The resulting plot-level metrics were then used as predictors to develop statistical models for predicting Above-Ground Biomass (AGB) and dominant tree height. Models were built using forward selection with the add1() function, and the significance of each predictor was evaluated with an F-test. Collinearity was also considered, and highly correlated variables were excluded.</p>
+<p>For AGB, the most significant predictors were zq90 (90th height percentile) and zentropy (canopy complexity). For dominant tree height, the most significant predictors were zq75 (75th height percentile) and pzabove2 (proportion of returns above 2 m).</p>
+<p>Model 1 formula: Total_AGB = 609,811 + 16,293·zq90 - 975,484·zentropy Model 2 formula: Dominant_Height = 3.55544 + 0.91019·zq95</p>
+<p>These models were then applied to the full LiDAR dataset to generate wall-to-wall predictions of AGB and dominant tree height across the forest.</p>
+<p><img src="images/AGB.png" class="img-fluid"> <em>Figure 3: Total Predicted Above Ground Biomass across AFRF</em></p>
+<p><img src="images/DH.png" class="img-fluid"> <em>Figure 3: Total Predicted Dominant Height across AFRF</em></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

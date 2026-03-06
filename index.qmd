@@ -1,25 +1,48 @@
 ---
-title: "Abbey Kealey"
-image: images/Abbey_headshot.jpg
-about:
-  template: trestles
-  image-width: 20em
-  links: 
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/abbey-kealey-405473204/
-    - icon: envelope-at
-      text: Email
-      href: mailto:abbeykealey@gmail.com
-      
-format:
-  html:
-    theme: lux
-    css: styles.css
-    toc: true
+title: ""
+title-block-style: none
+format: html
 ---
 
-ABOUT ME
+<div class="hero">
 
-I am currently a Master of Geomatics for Environmental Management (MGEM) student at UBC with a background in environmental and computer science.  
+<img src="images/Abbey_headshot.jpg" class="profile-img">
 
+<h1>Abbey Kealey</h1>
+
+<p class="hero-links">
+<a href="https://www.linkedin.com/in/abbey-kealey-405473204/">LinkedIn</a> |
+<a href="mailto:abbeykealey@gmail.com">Email</a>
+</p>
+
+</div>
+
+<div class="bio">
+
+## About Me
+
+Master of Geomatics for Environmental Management (MGEM) student at UBC with a background in environmental and computer science.
+
+</div>
+
+## Map Gallery
+
+<div class="gallery-container">
+
+  <div class="gallery-item">
+    <img src="images/map1.png" alt="Map 1">
+    <p>Map 1 Description</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="images/map2.png" alt="Map 2">
+    <p>Map 2 Description</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="images/map3.png" alt="Map 3">
+    <p>Map 3 Description</p>
+  </div>
+
+  <!-- Add more maps here -->
+</div>

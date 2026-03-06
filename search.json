@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Abbey Kealey",
+    "title": "\nAbbey Kealey\n",
     "section": "",
-    "text": "ABOUT ME\nI am currently a Master of Geomatics for Environmental Management (MGEM) student at UBC with a background in environmental and computer science."
+    "text": "LinkedIn | Email"
   },
   {
     "objectID": "resume.html",
@@ -16,9 +16,9 @@
   {
     "objectID": "publications.html",
     "href": "publications.html",
-    "title": "Publications",
+    "title": "Assignments & Projects",
     "section": "",
-    "text": "Peer-reviewed publications:\nDespite listing them on your resume, it may also be pertinent to create a seperate tab for publications and reports. As your career progresses, this list may become quite long, so be sure to organize things. You may want to point to ‘most recent’ publications, or categorize things by project/topic."
+    "text": "&lt;h3 style=\"margin: 10px;\"&gt;Assignment 1&lt;/h3&gt;\n  &lt;img src=\"images/assignment1_thumb.png\" style=\"width: 100%; height: 100%; object-fit: cover;\"&gt;\n&lt;/div&gt;"
   },
   {
     "objectID": "content_development.html",
@@ -54,5 +54,54 @@
     "title": "Content & Deliverables",
     "section": "",
     "text": "You can also provide a frame linking to external websites. For example, here is a Google Earth Engine application I developed - which I embedded in this webpage using the code below:\n\n\n&lt;iframe width=\"900\" height=\"700\"\nsrc=\"https://ee-melserramon.projects.earthengine.app/view/thermal-analysis-tool\"&gt;\n&lt;/iframe&gt;\n\nThe full-screen GEE application is available here in case you’re interested.\n(To use the GEE tool, navigate to any city you’d like, hit apply filters, and click anywhere on the map to retrieve a time-series of Landsat surface temperature observations for that point. Areas where the maximum temp exceeded 35 degrees Celsius in your date-range are highlighted in red.)"
+  },
+  {
+    "objectID": "Assignment1.html",
+    "href": "Assignment1.html",
+    "title": "LiDAR Processing and Forest Attribute Modeling",
+    "section": "",
+    "text": "Overview\nIn this advanced remote sensing lab, raw lidar point cloud data was used to predict Above Ground Biomass (AGB) and dominant tree height across Alex Fraser Research Forest (AFRF). The workflow involved cleaning and processing the LiDAR data using the lidR package, generating key products such as Digital Elevation Models (DEMs) and Canopy Height Models (CHMs), and calculating plot-level LiDAR metrics. These metrics were then used to develop a statistical model, which was applied to produce wall-to-wall predictions of AGB and dominant tree height across the forest.\n\n\nBasic Lidar Processing\nThe raw LiDAR point cloud data, provided as multiple .las tiles, were loaded into a LAS catalog to enable processing all tiles together. The dataset was inspected for quality issues, and duplicate points were removed to ensure accurate analysis.\n\nlibrary(lidR)\n\n# Create LAScatalog object from AFRF las tiles\ncat_afrf &lt;- readLAScatalog(\"Data/LAS\")\n\n# Inspect the LAScatalog for potential issues\nlas_check(cat_afrf)\n\n# Remove duplicate points to improve processing efficiency\nfiltered_cat_afrf &lt;- filter_duplicates(cat_afrf)\n\n\n\nGround and Canopy Modeling\nNext, a Digital Elevation Model (DEM) was generated to represent the ground surface, allowing separation of ground points from vegetation and other non-ground features. The DEM was created using the tin() algorithm and rasterize_terrain() function. Because the raw LiDAR data was not normalized, the DEM was used to normalize the point cloud, which was then used to produce a Canopy Height Model (CHM) using the p2r (point-to-raster) method.\n\n#Create DEM with tin algorithm\ndem_afrf &lt;- rasterize_terrain(filtered_cat_afrf, 2, tin())\n\n#normalize all tiles in cat_afrf with the DEM \nnorm_tiles_afrf &lt;- normalize_height(filtered_cat_afrf, dem_afrf)\n\n#Create CHM for all normalized AFRF Tiles using p2r algorithm\nchm_afrf &lt;- rasterize_canopy(norm_cat_afrf, 2, p2r()) \n\n Figure 1: Digital Elevation Model (DEM) of AFRF\n Figure 2: Canopy Height Model (CHM) of AFRF\n\n\nEstimate Forest Attributes & Model Development\nTo estimate forest attributes, 38 plots were extracted across the study area, each with a radius of 30 meters. For each plot, a set of standard LiDAR metrics was calculated using the cloud_metrics() function from the lidR package. These metrics summarize key structural properties of the forest, including canopy height percentiles, variability in height, and point cloud density.\nThe resulting plot-level metrics were then used as predictors to develop statistical models for predicting Above-Ground Biomass (AGB) and dominant tree height. Models were built using forward selection with the add1() function, and the significance of each predictor was evaluated with an F-test. Collinearity was also considered, and highly correlated variables were excluded.\nFor AGB, the most significant predictors were zq90 (90th height percentile) and zentropy (canopy complexity). For dominant tree height, the most significant predictors were zq75 (75th height percentile) and pzabove2 (proportion of returns above 2 m).\nModel 1 formula: Total_AGB = 609,811 + 16,293·zq90 - 975,484·zentropy Model 2 formula: Dominant_Height = 3.55544 + 0.91019·zq95\nThese models were then applied to the full LiDAR dataset to generate wall-to-wall predictions of AGB and dominant tree height across the forest.\n Figure 3: Total Predicted Above Ground Biomass across AFRF\n Figure 3: Total Predicted Dominant Height across AFRF"
+  },
+  {
+    "objectID": "Projects & Assignments.html",
+    "href": "Projects & Assignments.html",
+    "title": "My Projects",
+    "section": "",
+    "text": "Assignment 1\n\n&lt;img src=\"images/Abbey_headshot.jpg\" alt=\"Assignment 1\"&gt;\n\n \n\nAssignment 2\n\n&lt;img src=\"images/assignment2_thumb.png\" alt=\"Assignment 2\"&gt;"
+  },
+  {
+    "objectID": "Assignment2.html",
+    "href": "Assignment2.html",
+    "title": "Salmon Stream Network Analysis",
+    "section": "",
+    "text": "Overview\nIn this advanced GIS lab, spatial analysis was used to model stream networks and evaluate potential salmon spawning habitat on Vancouver Island. Using a Digital Elevation Model (DEM) in ArcGIS Pro, hydrological processes were simulated to derive a stream network and analyze the structure and connectivity of waterways across the island.\n\n\nWorkflow\nThe workflow involved generating hydrology layers from the DEM, converting streams to network routes, and incorporating dams as barriers within the system. Linear referencing and network tracing were then used to analyze stream attributes and determine which stream segments were accessible to salmon migrating from the ocean. Finally, spatial queries were used to identify stream segments with characteristics suitable for salmon spawning habitat based on accessibility, stream order, and slope gradient. Finally, the analysis was narrowed to the Chinook Conservation Unit to evaluate stream segments with characteristics suitable for Chinook salmon spawning habitat.\n\n\nResults\nThe analysis identified 39,836 stream segments as accessible to Chinook salmon, while 16,802 segments were inaccessible (Table 1). Within the Chinook Conservation Unit, there were 74 dam junctions and 124 ocean junctions. Figure 1 visually illustrates which stream segments are reachable from the ocean and highlights potential barriers to migration. \n\nTable 1. Summary of Chinook salmon conservation unit stream network: total number of accessible and inaccessible streams, dam junctions, and ocean junctions.\n\n \n\n\nFigure 1. Stream reachability, barriers, and accessible habitat within the Chinook salmon conservation unit. Accessible and inaccessible stream segments are shown based on connectivity to the ocean, with dam junctions representing potential barriers and ocean junctions indicating access points for migrating salmon."
+  },
+  {
+    "objectID": "Projects.html",
+    "href": "Projects.html",
+    "title": "My Projects",
+    "section": "",
+    "text": "Assignment 1\n    \n    \n      Your Assignment 1 Title\n      A short description of what this project covers — the methods used, the dataset, or the key finding.\n      View project →\n    \n  \n\n  \n  \n    \n      \n      \n        \n          \n          \n          \n        \n      \n      Assignment 2\n    \n    \n      Your Assignment 2 Title\n      A short description of what this project covers — the methods used, the dataset, or the key finding.\n      View project →"
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "\nAbbey Kealey\n",
+    "section": "About Me",
+    "text": "About Me\nMaster of Geomatics for Environmental Management (MGEM) student at UBC with a background in environmental and computer science."
+  },
+  {
+    "objectID": "index.html#map-gallery",
+    "href": "index.html#map-gallery",
+    "title": "\nAbbey Kealey\n",
+    "section": "Map Gallery",
+    "text": "Map Gallery\n\n\n&lt;img src=\"images/map1.png\" alt=\"Map 1\"&gt;\n&lt;p&gt;Map 1 Description&lt;/p&gt;\n\n\n&lt;img src=\"images/map2.png\" alt=\"Map 2\"&gt;\n&lt;p&gt;Map 2 Description&lt;/p&gt;\n\n\n&lt;img src=\"images/map3.png\" alt=\"Map 3\"&gt;\n&lt;p&gt;Map 3 Description&lt;/p&gt;"
+  },
+  {
+    "objectID": "Assignment3.html",
+    "href": "Assignment3.html",
+    "title": "Modelling the Habitat Suitability of Stiff Yellow Flax in Eastern Georgian Bay with Random Forest and Maximum Entropy Models",
+    "section": "",
+    "text": "Overview\nFor my master’s capstone project, I modeled the habitat suitability of Stiff Yellow Flax, a rare herbaceous perennial plant restricted to the coastal marshes of Ontario’s Great Lakes region. This species is highly sensitive to fluctuating water levels, which are expected to increase with climate change, potentially affecting its survival and distribution. My project aimed to identify areas of suitable habitat across Eastern Georgian Bay (EGB) and determine which environmental factors most strongly influence the species’ distribution. I used two machine learning approaches: Random Forest, a presence–absence model, and MaxEnt, a presence-only model, to predict habitat suitability and evaluate key environmental drivers.\n\n\nMethods\nSpecies occurrence data were cleaned, filtered, and thinned to reduce sampling bias, resulting in 78 presence points. Absence data were generated from surveyed areas where the species was not detected, supplemented with pseudo-absences to capture a representative range of environmental conditions.\nEnvironmental predictors included elevation, slope, aspect, vegetation health (NDVI), distance to shoreline, SWIR 2, and total summer precipitation Highly correlated variables (NDWI, NDMI and mean summer temperature) were removed to improve model interpretability.\nBoth Random Forest and MaxEnt models were trained using spatial k-fold cross-validation to account for clustered occurrences. Random Forest incorporated presence and absence points, while MaxEnt used presence points and background points weighted by survey effort. Model performance was assessed using AUC and TSS, and variable importance was analyzed to identify the main drivers of habitat suitability.\n\n\nResults\nBoth models highlighted that most of Eastern Georgian Bay represents unsuitable habitat for Stiff Yellow Flax, with high suitability primarily concentrated along shoreline areas. The Random Forest model (Figure 1) predicted a broader gradient of suitability across inland regions, while MaxEnt (Figure 2) produced sharper contrasts between high and low suitability.\n\n\nFigure 1. Predicted habitat suitability for Stiff Yellow Flax across Eastern Georgian Bay from the Random Forest model. Suitability scores range continuously from 0 (unsuitable) to 1 (highly suitable).\n\n\n\nFigure 2. Predicted habitat suitability for Stiff Yellow Flax across Eastern Georgian Bay from the MaxEnt model. Suitability scores range continuously from 0 (unsuitable) to 1 (highly suitable).\n\nPartial dependence plots from Random Forest (Figure 3) and Response curves from MaxEnt (Figure 4) showed how habitat suitability varied with environmental conditions. Suitability generally increased with higher precipitation and NDVI, as well as with less steep slopes, lower elevations, and closer proximity to the shoreline. Moderate SWIR 2 reflectance also corresponded with higher suitability, and aspect had smaller, more variable effects. The models highlighted different key environmental drivers of habitat suitability. For Random Forest (Figures 5), elevation, precipitation, and NDVI were most influential, while for MaxEnt (Figures 6), distance to water, NDVI, and SWIR 2 reflectance were the primary predictors.\nModel performance was strong for both approaches. Random Forest achieved a mean AUC of 0.87 and TSS of 0.73, while MaxEnt achieved a mean AUC of 0.95 and TSS of 0.78 (Table 1), indicating reliable predictions."
   }
 ]

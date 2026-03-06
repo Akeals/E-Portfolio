@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Resume – Abbey Kealey</title>
+<title>Modelling the Habitat Suitability of Stiff Yellow Flax in Eastern Georgian Bay with Random Forest and Maximum Entropy Models – Abbey Kealey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./resume.html" aria-current="page"> 
+    <a class="nav-link" href="./resume.html"> 
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
@@ -116,25 +116,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#education-certificates" id="toc-education-certificates" class="nav-link active" data-scroll-target="#education-certificates">Education &amp; Certificates</a></li>
-  <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a></li>
-  <li><a href="#work-experience" id="toc-work-experience" class="nav-link" data-scroll-target="#work-experience">Work Experience</a></li>
-  <li><a href="#awards-honors" id="toc-awards-honors" class="nav-link" data-scroll-target="#awards-honors">Awards &amp; Honors</a></li>
-  <li><a href="#volunteer-activities" id="toc-volunteer-activities" class="nav-link" data-scroll-target="#volunteer-activities">Volunteer Activities</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Resume</h1>
+<h1 class="title">Modelling the Habitat Suitability of Stiff Yellow Flax in Eastern Georgian Bay with Random Forest and Maximum Entropy Models</h1>
 </div>
 
 
@@ -151,77 +141,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="education-certificates" class="level1">
-<h1>Education &amp; Certificates</h1>
-<section id="university-of-british-columbia" class="level4">
-<h4 class="anchored" data-anchor-id="university-of-british-columbia">University of British Columbia</h4>
-<p><span style="font-size:0.9em"><em>Vancouver, BC | 07/2025 - present</em></span><br>
-Masters of Geomatics for Environmental Management (MGEM)</p>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>For my master’s capstone project, I modeled the habitat suitability of Stiff Yellow Flax, a rare herbaceous perennial plant restricted to the coastal marshes of Ontario’s Great Lakes region. This species is highly sensitive to fluctuating water levels, which are expected to increase with climate change, potentially affecting its survival and distribution. My project aimed to identify areas of suitable habitat across Eastern Georgian Bay (EGB) and determine which environmental factors most strongly influence the species’ distribution. I used two machine learning approaches: Random Forest, a presence–absence model, and MaxEnt, a presence-only model, to predict habitat suitability and evaluate key environmental drivers.</p>
 </section>
-<section id="concordia-university" class="level4">
-<h4 class="anchored" data-anchor-id="concordia-university">Concordia University</h4>
-<p><span style="font-size:0.9em"><em>Montreal, QC | 08/2023 | 05/2022</em></span><br>
-Graduate Diploma in Computer Science (GrDip)<br>
-Honours Bachelor of Environmental Science (BSc)</p>
+<section id="methods" class="level4">
+<h4 class="anchored" data-anchor-id="methods">Methods</h4>
+<p>Species occurrence data were cleaned, filtered, and thinned to reduce sampling bias, resulting in 78 presence points. Absence data were generated from surveyed areas where the species was not detected, supplemented with pseudo-absences to capture a representative range of environmental conditions.</p>
+<p>Environmental predictors included elevation, slope, aspect, vegetation health (NDVI), distance to shoreline, SWIR 2, and total summer precipitation Highly correlated variables (NDWI, NDMI and mean summer temperature) were removed to improve model interpretability.</p>
+<p>Both Random Forest and MaxEnt models were trained using spatial k-fold cross-validation to account for clustered occurrences. Random Forest incorporated presence and absence points, while MaxEnt used presence points and background points weighted by survey effort. Model performance was assessed using AUC and TSS, and variable importance was analyzed to identify the main drivers of habitat suitability.</p>
 </section>
-<section id="heritage-college" class="level4">
-<h4 class="anchored" data-anchor-id="heritage-college">Heritage College</h4>
-<p><span style="font-size:0.9em"><em>Gatineau, QC | 05/2018</em> </span><br>
-DEC in Sciences</p>
-</section>
-</section>
-<section id="skills" class="level1">
-<h1>Skills</h1>
-<p><span style="color:#FF6F61">★</span> Bilingual (English/French)<br>
-<span style="color:#6B5B95">★</span> GIS (ArcGIS Pro, QGIS)<br>
-<span style="color:#88B04B">★</span> Programming (Python, R, JavaScript)<br>
-<span style="color:#F7CAC9">★</span> Spatial data processing and analysis<br>
-<span style="color:#92A8D1">★</span> Strong verbal and written communication<br>
-<span style="color:#FFA500">★</span> Exceptional problem-solving</p>
-</section>
-<section id="work-experience" class="level1">
-<h1>Work Experience</h1>
-<p><span style="font-size:1.5em">The Climate Reality Project Canada</span><br>
-<span style="font-size:1.1em">Accounting &amp; Administration Coordinator | May 2024 - present<br>
-Digital Content Coordinator | August 2023 – May 2024</span><br>
-<span style="font-size:0.9em; font-style:italic;">Montreal, Quebec</span></p>
-<p>• Assisted with budget preparation, payroll management, and accounts payable/receivable, including processing payments and issuing cheques.<br>
-• Performed monthly bank reconciliation, prepared financial reports, and ensured compliance with IT and HR protocols.<br>
-• Created and edited digital content for social media, newsletters, and the website, including content in both English and French.<br>
-• Developed an interactive dashboard, providing a user-friendly interface for stakeholders to engage with important data.<br>
-• Managed large datasets by performing data cleaning, updating records in the database, and entering new data with a focus on accuracy and efficiency.</p>
-<p><span style="font-size:1.5em">Community Knowledge Exchange</span><br>
-<span style="font-size:1.1em">Operations Coordinator</span><br>
-<span style="font-size:0.9em; font-style:italic;">Remote | Ottawa, Ontario | 06/2022 – 08/2022</span></p>
-<p>• Collaborated closely with the managing director to develop and maintain values-aligned administrative processes.<br>
-• Supported the development and shaping of programming shifts towards a more community-centered and decolonial approach.<br>
-• Worked closely with team members to coordinate and track activities and contributions to the organization’s annual strategic goals.<br>
-• Identified fund and partnership opportunities, which included working with the team to develop engagement strategies.</p>
-<p><span style="font-size:1.5em">Shared Services Canada</span><br>
-<span style="font-size:1.1em">Project Management &amp; Delivery Branch - Administrative Assistant to The Director</span><br>
-<span style="font-size:0.9em; font-style:italic;">Remote | Ottawa, Ontario | 06/2019 – 08/2021</span></p>
-<p>• Monitored supervisor’s work calendar and scheduled appointments, meetings, and travel.<br>
-• Tracked the completion of key deliverables to ensure deadlines were met consistently.<br>
-• Monitored supervisor’s inbox and wrote emails on their behalf.<br>
-• Facilitated onboarding and offboarding of employees and consultants.<br>
-• Produced accurate office files, updated spreadsheets, and crafted presentations to support co-workers.<br>
-• Restocked supplies and placed purchase orders.</p>
-</section>
-<section id="awards-honors" class="level1">
-<h1>Awards &amp; Honors</h1>
-<p><span style="color:#FF6F61">★</span> <strong>David Frost Memorial Scholarship (2022)</strong><br>
-For academic excellence in the Environmental Science Honours program.</p>
-<p><span style="color:#6B5B95">★</span> <strong>Arts and Science Scholar, Department of Geography, Planning and Environment (2022)</strong><br>
-For being a top student (1%) in the department.</p>
-</section>
-<section id="volunteer-activities" class="level1">
-<h1>Volunteer Activities</h1>
-<section id="moose-hide-campaign" class="level4">
-<h4 class="anchored" data-anchor-id="moose-hide-campaign">Moose Hide Campaign</h4>
-<p>Indigenous grassroots anti-violence organization</p>
+<section id="results" class="level4">
+<h4 class="anchored" data-anchor-id="results">Results</h4>
+<p>Both models highlighted that most of Eastern Georgian Bay represents unsuitable habitat for Stiff Yellow Flax, with high suitability primarily concentrated along shoreline areas. The Random Forest model (Figure 1) predicted a broader gradient of suitability across inland regions, while MaxEnt (Figure 2) produced sharper contrasts between high and low suitability.</p>
+<img src="images/RF_finalHSM.jpg" class="img-fluid">
+<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+Figure 1. Predicted habitat suitability for Stiff Yellow Flax across Eastern Georgian Bay from the Random Forest model. Suitability scores range continuously from 0 (unsuitable) to 1 (highly suitable).
+</figcaption>
+<img src="images/Maxent_finalHSM.jpg" class="img-fluid">
+<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+Figure 2. Predicted habitat suitability for Stiff Yellow Flax across Eastern Georgian Bay from the MaxEnt model. Suitability scores range continuously from 0 (unsuitable) to 1 (highly suitable).
+</figcaption>
+<p>Partial dependence plots from Random Forest (Figure 3) and Response curves from MaxEnt (Figure 4) showed how habitat suitability varied with environmental conditions. Suitability generally increased with higher precipitation and NDVI, as well as with less steep slopes, lower elevations, and closer proximity to the shoreline. Moderate SWIR 2 reflectance also corresponded with higher suitability, and aspect had smaller, more variable effects. The models highlighted different key environmental drivers of habitat suitability. For Random Forest (Figures 5), elevation, precipitation, and NDVI were most influential, while for MaxEnt (Figures 6), distance to water, NDVI, and SWIR 2 reflectance were the primary predictors.</p>
+<p>Model performance was strong for both approaches. Random Forest achieved a mean AUC of 0.87 and TSS of 0.73, while MaxEnt achieved a mean AUC of 0.95 and TSS of 0.78 (Table 1), indicating reliable predictions.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

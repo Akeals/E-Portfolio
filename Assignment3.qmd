@@ -1,0 +1,44 @@
+---
+title: "Modelling the Habitat Suitability of Stiff Yellow Flax in Eastern Georgian Bay with Random Forest and Maximum Entropy Models"
+---
+
+
+#### Overview
+
+For my master’s capstone project, I modeled the habitat suitability of Stiff Yellow Flax, a rare herbaceous perennial plant restricted to the coastal marshes of Ontario’s Great Lakes region. This species is highly sensitive to fluctuating water levels, which are expected to increase with climate change, potentially affecting its survival and distribution. My project aimed to identify areas of suitable habitat across Eastern Georgian Bay (EGB) and determine which environmental factors most strongly influence the species’ distribution. I used two machine learning approaches: Random Forest, a presence–absence model, and MaxEnt, a presence-only model, to predict habitat suitability and evaluate key environmental drivers.
+
+#### Methods
+
+Species occurrence data were cleaned, filtered, and thinned to reduce sampling bias, resulting in 78 presence points. Absence data were generated from surveyed areas where the species was not detected, supplemented with pseudo-absences to capture a representative range of environmental conditions.
+
+Environmental predictors included elevation, slope, aspect, vegetation health (NDVI), distance to shoreline, SWIR 2, and total summer precipitation Highly correlated variables (NDWI, NDMI and mean summer temperature) were removed to improve model interpretability. 
+
+Both Random Forest and MaxEnt models were trained using spatial k-fold cross-validation to account for clustered occurrences. Random Forest incorporated presence and absence points, while MaxEnt used presence points and background points weighted by survey effort. Model performance was assessed using AUC and TSS, and variable importance was analyzed to identify the main drivers of habitat suitability.
+
+#### Results
+
+Both models highlighted that most of Eastern Georgian Bay represents unsuitable habitat for Stiff Yellow Flax, with high suitability primarily concentrated along shoreline areas. The Random Forest model (Figure 1) predicted a broader gradient of suitability across inland regions, while MaxEnt (Figure 2) produced sharper contrasts between high and low suitability.
+
+
+![](images/RF_finalHSM.jpg)
+<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+  Figure 1. Predicted habitat suitability for Stiff Yellow Flax across Eastern Georgian Bay from the Random Forest model. Suitability scores range continuously from 0 (unsuitable) to 1 (highly suitable).
+</figcaption>
+
+![](images/Maxent_finalHSM.jpg)
+<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+  Figure 2. Predicted habitat suitability for Stiff Yellow Flax across Eastern Georgian Bay from the MaxEnt model. Suitability scores range continuously from 0 (unsuitable) to 1 (highly suitable).
+</figcaption>
+
+Partial dependence plots from Random Forest (Figure 3) and Response curves from MaxEnt (Figure 4) showed how habitat suitability varied with environmental conditions. Suitability generally increased with higher precipitation and NDVI, as well as with less steep slopes, lower elevations, and closer proximity to the shoreline. Moderate SWIR 2 reflectance also corresponded with higher suitability, and aspect had smaller, more variable effects. The models highlighted different key environmental drivers of habitat suitability. For Random Forest (Figures 5), elevation, precipitation, and NDVI were most influential, while for MaxEnt (Figures 6), distance to water, NDVI, and SWIR 2 reflectance were the primary predictors.
+
+Model performance was strong for both approaches. Random Forest achieved a mean AUC of 0.87 and TSS of 0.73, while MaxEnt achieved a mean AUC of 0.95 and TSS of 0.78 (Table 1), indicating reliable predictions.
+
+
+
+
+
+
+
+
+

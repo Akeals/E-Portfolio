@@ -34,11 +34,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bb49951d50c4a7e8d052f44ae1610a34.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-57aae3676c5e11e1c0d8cddef165a900.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -97,8 +98,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
-<span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="./Projects.html"> 
+<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./content.html"> 
@@ -115,40 +116,66 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
+  <li><a href="#map-gallery" id="toc-map-gallery" class="nav-link" data-scroll-target="#map-gallery">Map Gallery</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="images/Abbey_headshot.jpg" class="about-image
-  rounded " style="width: 20em;">
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Abbey Kealey</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header>
-    <div class="about-links">
-  <a href="https://www.linkedin.com/in/abbey-kealey-405473204/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="mailto:abbeykealey@gmail.com" class="about-link" rel="" target="">
-    <i class="bi bi-envelope-at"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>ABOUT ME</p>
-<p>I am currently a Master of Geomatics for Environmental Management (MGEM) student at UBC with a background in environmental and computer science.</p>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-</main></div>
+
+
+<div class="hero">
+<p><img src="images/Abbey_headshot.jpg" class="profile-img"></p>
+<h1>
+Abbey Kealey
+</h1>
+<p class="hero-links">
+<a href="https://www.linkedin.com/in/abbey-kealey-405473204/">LinkedIn</a> | <a href="mailto:abbeykealey@gmail.com">Email</a>
+</p>
 </div>
- <!-- /main -->
+<section id="about-me" class="level2 bio">
+<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
+<p>Master of Geomatics for Environmental Management (MGEM) student at UBC with a background in environmental and computer science.</p>
+</section>
+<section id="map-gallery" class="level2">
+<h2 class="anchored" data-anchor-id="map-gallery">Map Gallery</h2>
+<div class="gallery-container">
+<div class="gallery-item">
+<pre><code>&lt;img src="images/map1.png" alt="Map 1"&gt;
+&lt;p&gt;Map 1 Description&lt;/p&gt;</code></pre>
+</div>
+<div class="gallery-item">
+<pre><code>&lt;img src="images/map2.png" alt="Map 2"&gt;
+&lt;p&gt;Map 2 Description&lt;/p&gt;</code></pre>
+</div>
+<div class="gallery-item">
+<pre><code>&lt;img src="images/map3.png" alt="Map 3"&gt;
+&lt;p&gt;Map 3 Description&lt;/p&gt;</code></pre>
+</div>
+<p><!-- Add more maps here --></p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
