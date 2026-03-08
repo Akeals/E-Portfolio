@@ -12,8 +12,6 @@ website:
         text: Resume
       - href: Projects.qmd
         text: Projects
-      - href: content.qmd
-        text: Content & Deliverables
     
 
 format:
