@@ -28,7 +28,7 @@ Both models highlighted that most of Eastern Georgian Bay represents unsuitable 
   Figure 2. Predicted habitat suitability for Stiff Yellow Flax across Eastern Georgian Bay from the Random Forest model. Suitability scores range continuously from 0 (unsuitable) to 1 (highly suitable).
 </figcaption>
 
-![](images/Maxent_finalHSM.jpg) 
+![](images/MaxEnt_finalHSM.jpg) 
 <figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
   Figure 3. Predicted habitat suitability for Stiff Yellow Flax across Eastern Georgian Bay from the MaxEnt model. Suitability scores range continuously from 0 (unsuitable) to 1 (highly suitable).
 </figcaption>
