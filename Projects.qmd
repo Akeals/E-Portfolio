@@ -135,9 +135,9 @@ css: styles.css
 <div class="projects-grid">
 
   <!-- Card 3 -->
-  <a class="project-card" href="Assignment3.html">
+  <a class="project-card" href="Capstone Project.html">
     <div class="card-image-wrap">
-      <img src="images/RF_finalHSM.jpg" alt="Assignment 3"
+      <img src="images/RF_finalHSM.jpg" alt="Habitat suitability map"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
       <div class="card-placeholder" style="display:none">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.2">
@@ -145,11 +145,11 @@ css: styles.css
           <circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
         </svg>
       </div>
-      <span class="card-tag">Assignment 3</span>
+      <span class="card-tag">Research</span>
     </div>
     <div class="card-body">
-      <h3 class="card-title">Your Assignment 3 Title</h3>
-      <p class="card-desc">A short description of what this project covers — the methods used, the dataset, or the key finding.</p>
+      <h3 class="card-title">Masters Capstone Project</h3>
+      <p class="card-desc">Mapping the suitability of Stiff Yellow Flax across Eastern Georgian Bay</p>
       <span class="card-cta">View project →</span>
     </div>
   </a>
@@ -157,7 +157,7 @@ css: styles.css
   <!-- Card 1 -->
   <a class="project-card" href="Assignment1.html">
     <div class="card-image-wrap">
-      <img src="images/lidar.png" alt="Assignment 1"
+      <img src="images/lidar.png" alt="canopy height model"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
       <div class="card-placeholder" style="display:none">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.2">
@@ -165,11 +165,11 @@ css: styles.css
           <circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
         </svg>
       </div>
-      <span class="card-tag">Assignment 1</span>
+      <span class="card-tag">Remote Sensing</span>
     </div>
     <div class="card-body">
-      <h3 class="card-title">Your Assignment 1 Title</h3>
-      <p class="card-desc">A short description of what this project covers — the methods used, the dataset, or the key finding.</p>
+      <h3 class="card-title">Lidar Processing & Forest Attribute Modelling</h3>
+      <p class="card-desc">Processing Lidar point clouds to create wall to wall predictions of forest attributes.</p>
       <span class="card-cta">View project →</span>
     </div>
   </a>
@@ -177,7 +177,7 @@ css: styles.css
   <!-- Card 2 -->
   <a class="project-card" href="Assignment2.html">
     <div class="card-image-wrap">
-      <img src="images/salmon.png" alt="Assignment 2"
+      <img src="images/salmon.png" alt="map of streams and dams in salmon spawning areas"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
       <div class="card-placeholder" style="display:none">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.2">
@@ -185,11 +185,11 @@ css: styles.css
           <circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
         </svg>
       </div>
-      <span class="card-tag">Assignment 2</span>
+      <span class="card-tag">GIS</span>
     </div>
     <div class="card-body">
-      <h3 class="card-title">Your Assignment 2 Title</h3>
-      <p class="card-desc">A short description of what this project covers — the methods used, the dataset, or the key finding.</p>
+      <h3 class="card-title">Salmon Stream Network Analysis</h3>
+      <p class="card-desc">Determining stream reachability, barriers, and accessible habitat within the Chinook salmon conservation unit.g.</p>
       <span class="card-cta">View project →</span>
     </div>
   </a>
