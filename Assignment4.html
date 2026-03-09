@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Resume – Abbey Kealey</title>
+<title>Supervised Image Classification – Abbey Kealey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -94,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./resume.html" aria-current="page"> 
+    <a class="nav-link" href="./resume.html"> 
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
@@ -112,25 +147,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#education-certificates" id="toc-education-certificates" class="nav-link active" data-scroll-target="#education-certificates">Education &amp; Certificates</a></li>
-  <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a></li>
-  <li><a href="#work-experience" id="toc-work-experience" class="nav-link" data-scroll-target="#work-experience">Work Experience</a></li>
-  <li><a href="#awards-honors" id="toc-awards-honors" class="nav-link" data-scroll-target="#awards-honors">Awards &amp; Honors</a></li>
-  <li><a href="#volunteer-activities" id="toc-volunteer-activities" class="nav-link" data-scroll-target="#volunteer-activities">Volunteer Activities</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Resume</h1>
+<h1 class="title">Supervised Image Classification</h1>
 </div>
 
 
@@ -147,77 +172,78 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="education-certificates" class="level1">
-<h1>Education &amp; Certificates</h1>
-<section id="university-of-british-columbia" class="level4">
-<h4 class="anchored" data-anchor-id="university-of-british-columbia">University of British Columbia</h4>
-<p><span style="font-size:0.9em"><em>Vancouver, BC | 07/2025 - present</em></span><br>
-Masters of Geomatics for Environmental Management (MGEM)</p>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>In this remote sensing lab, I performed a supervised classification of a Landsat 9 satellite image of the southern Gulf Islands in British Columbia to map different land cover types (broadleaf forest, coniferous forest, exposed soil and rocks, high-density developed areas, low-density developed areas, non-forest vegetation, and water). The workflow combined QGIS for training data collection and R for image classification and accuracy assessment.</p>
 </section>
-<section id="concordia-university" class="level4">
-<h4 class="anchored" data-anchor-id="concordia-university">Concordia University</h4>
-<p><span style="font-size:0.9em"><em>Montreal, QC | 08/2023 | 05/2022</em></span><br>
-Graduate Diploma in Computer Science (GrDip)<br>
-Honours Bachelor of Environmental Science (BSc)</p>
+<section id="collecting-training-data" class="level4">
+<h4 class="anchored" data-anchor-id="collecting-training-data">Collecting Training Data</h4>
+<p>The first step was to collect training data so the classification algorithm could learn how to classify the remaining pixels in the image. This involved drawing boundaries in QGIS around sample areas representing each land-cover class, using a combination of false colour composites and satellite imagery to distinguish between classes. Each class included several training areas to represent the range of pixel values associated with that land cover across the image. Figure 1 shows an example of the polygon-drawing process in QGIS, with the accompanying legend summarizing the number of polygons assigned to each class.</p>
+<img src="images/polygons.png" class="img-fluid">
+<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+Figure 1. Delineation of training polygons in QGIS for seven land cover classes, showing the process of selecting Regions of Interest on the Landsat imagery.
+</figcaption>
 </section>
-<section id="heritage-college" class="level4">
-<h4 class="anchored" data-anchor-id="heritage-college">Heritage College</h4>
-<p><span style="font-size:0.9em"><em>Gatineau, QC | 05/2018</em> </span><br>
-DEC in Sciences</p>
+<section id="assign-training-and-validation-polygons" class="level4">
+<h4 class="anchored" data-anchor-id="assign-training-and-validation-polygons">Assign training and validation polygons</h4>
+<p>The polygons were then imported into R and split into training and validation datasets. Seventy percent of the polygons for each land-cover class were used as training data for the classification algorithm, while the remaining 30% were reserved for validation to assess classification accuracy.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign a unique ID to each polygon </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>class_poly <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">rowid_to_column</span>(class_poly, <span class="at">var =</span> <span class="st">"ID"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed for random selection of polygons for training and validation</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample 70% of the polygons in each land cover class</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>poly_train <span class="ot">&lt;-</span> class_poly <span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(lc_class) <span class="sc">%&gt;%</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_frac</span>(<span class="fl">0.7</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">set =</span> <span class="st">"training"</span>) <span class="sc">%&gt;%</span> <span class="fu">st_cast</span>(<span class="at">to =</span> <span class="st">'POLYGON'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the ID field to select the polygons for validation</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>poly_val <span class="ot">&lt;-</span> class_poly <span class="sc">%&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>ID <span class="sc">%in%</span> poly_train<span class="sc">$</span>ID) <span class="sc">%&gt;%</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">set =</span> <span class="st">"validation"</span>) <span class="sc">%&gt;%</span> <span class="fu">st_cast</span>(<span class="at">to =</span> <span class="st">'POLYGON'</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine training and validation data into 1 table</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>poly_set <span class="ot">&lt;-</span> <span class="fu">rbind</span>(poly_train, </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                  poly_val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
+<section id="land-cover-classification" class="level4">
+<h4 class="anchored" data-anchor-id="land-cover-classification">Land Cover Classification</h4>
+<p>Next, the supervised classification was performed in R using the Maximum Likelihood Classification (MLC) algorithm. This method assigns each pixel in the image to the land-cover class for which it has the highest probability of belonging, based on the spectral signatures derived from the training polygons. Figure 2 shows the resulting map of classified land cover types.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#classify land cover with maximum likelihood classification model</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mlc_model <span class="ot">&lt;-</span> <span class="fu">superClass</span>(<span class="at">img =</span> ls_image, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">trainData =</span> poly_train, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">valData =</span> poly_val, </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">responseCol =</span> <span class="st">"lc_class"</span>, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">model =</span> <span class="st">"mlc"</span>, </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">nSamples =</span> <span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<img src="images/land_cover_map.jpg" class="img-fluid">
+<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+Figure 2. Landsat 9 image of the southern Gulf Islands classified into seven land cover types using the Maximum Likelihood Classification algorithm in R.
+</figcaption>
 </section>
-<section id="skills" class="level1">
-<h1>Skills</h1>
-<p><span style="color:#FF6F61">★</span> Bilingual (English/French)<br>
-<span style="color:#6B5B95">★</span> GIS (ArcGIS Pro, QGIS)<br>
-<span style="color:#88B04B">★</span> Programming (Python, R, JavaScript)<br>
-<span style="color:#F7CAC9">★</span> Spatial data processing and analysis<br>
-<span style="color:#92A8D1">★</span> Strong verbal and written communication<br>
-<span style="color:#FFA500">★</span> Exceptional problem-solving</p>
-</section>
-<section id="work-experience" class="level1">
-<h1>Work Experience</h1>
-<p><span style="font-size:1.5em">The Climate Reality Project Canada</span><br>
-<span style="font-size:1.1em">Accounting &amp; Administration Coordinator | May 2024 - present<br>
-Digital Content Coordinator | August 2023 – May 2024</span><br>
-<span style="font-size:0.9em; font-style:italic;">Montreal, Quebec</span></p>
-<p>• Assisted with budget preparation, payroll management, and accounts payable/receivable, including processing payments and issuing cheques.<br>
-• Performed monthly bank reconciliation, prepared financial reports, and ensured compliance with IT and HR protocols.<br>
-• Created and edited digital content for social media, newsletters, and the website, including content in both English and French.<br>
-• Developed an interactive dashboard, providing a user-friendly interface for stakeholders to engage with important data.<br>
-• Managed large datasets by performing data cleaning, updating records in the database, and entering new data with a focus on accuracy and efficiency.</p>
-<p><span style="font-size:1.5em">Community Knowledge Exchange</span><br>
-<span style="font-size:1.1em">Operations Coordinator</span><br>
-<span style="font-size:0.9em; font-style:italic;">Remote | Ottawa, Ontario | 06/2022 – 08/2022</span></p>
-<p>• Collaborated closely with the managing director to develop and maintain values-aligned administrative processes.<br>
-• Supported the development and shaping of programming shifts towards a more community-centered and decolonial approach.<br>
-• Worked closely with team members to coordinate and track activities and contributions to the organization’s annual strategic goals.<br>
-• Identified fund and partnership opportunities, which included working with the team to develop engagement strategies.</p>
-<p><span style="font-size:1.5em">Shared Services Canada</span><br>
-<span style="font-size:1.1em">Project Management &amp; Delivery Branch - Administrative Assistant to The Director</span><br>
-<span style="font-size:0.9em; font-style:italic;">Remote | Ottawa, Ontario | 06/2019 – 08/2021</span></p>
-<p>• Monitored supervisor’s work calendar and scheduled appointments, meetings, and travel.<br>
-• Tracked the completion of key deliverables to ensure deadlines were met consistently.<br>
-• Monitored supervisor’s inbox and wrote emails on their behalf.<br>
-• Facilitated onboarding and offboarding of employees and consultants.<br>
-• Produced accurate office files, updated spreadsheets, and crafted presentations to support co-workers.<br>
-• Restocked supplies and placed purchase orders.</p>
-</section>
-<section id="awards-honors" class="level1">
-<h1>Awards &amp; Honors</h1>
-<p><span style="color:#FF6F61">★</span> <strong>David Frost Memorial Scholarship (2022)</strong><br>
-For academic excellence in the Environmental Science Honours program.</p>
-<p><span style="color:#6B5B95">★</span> <strong>Arts and Science Scholar, Department of Geography, Planning and Environment (2022)</strong><br>
-For being a top student (1%) in the department.</p>
-</section>
-<section id="volunteer-activities" class="level1">
-<h1>Volunteer Activities</h1>
-<section id="moose-hide-campaign" class="level4">
-<h4 class="anchored" data-anchor-id="moose-hide-campaign">Moose Hide Campaign</h4>
-<p>Indigenous grassroots anti-violence organization</p>
+<section id="accuracy-assessment" class="level4">
+<h4 class="anchored" data-anchor-id="accuracy-assessment">Accuracy Assessment</h4>
+<p>Figure 3 shows the confusion matrix, where the columns represent the reference classes and the rows represent the predictions from the classification model. The overall accuracy, as well as the User’s Accuracy (UA) and Producer’s Accuracy (PA) for each class, were calculated using the R code below. The classification achieved an overall accuracy of 96%, with the class-specific UA and PA metrics summarized in the table below.</p>
+<img src="images/confusion_matrix.jpg" class="img-fluid">
+<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+Figure 3. Confusion matrix showing the classification results. Columns represent the reference classes and rows represent the predicted classes. Values are proportions of pixels classified correctly for each class.
+</figcaption>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>OA <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">diag</span>(conf_matrix))<span class="sc">/</span><span class="fu">sum</span>(conf_matrix)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>PA <span class="ot">=</span> <span class="fu">diag</span>(conf_matrix)<span class="sc">/</span><span class="fu">colSums</span>(conf_matrix)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>UA <span class="ot">=</span> <span class="fu">diag</span>(conf_matrix)<span class="sc">/</span><span class="fu">rowSums</span>(conf_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/accuracy_table.png" class="img-fluid"></p>
+<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+Table 1. Accuracy metrics for the supervised classification. User’s Accuracy (UA) indicates the proportion of correctly classified pixels for each predicted class, Producer’s Accuracy (PA) indicates the proportion of correctly classified pixels for each reference class
+</figcaption>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

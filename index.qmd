@@ -21,28 +21,7 @@ format: html
 
 ## About Me
 
-Master of Geomatics for Environmental Management (MGEM) student at UBC with a background in environmental and computer science.
-
+I'm a Master of Geomatics for Environmental Management (MGEM) student at UBC with a background in environmental and computer science.
 </div>
 
-## Map Gallery
 
-<div class="gallery-container">
-
-  <div class="gallery-item">
-    <img src="images/map1.png" alt="Map 1">
-    <p>Map 1 Description</p>
-  </div>
-
-  <div class="gallery-item">
-    <img src="images/map2.png" alt="Map 2">
-    <p>Map 2 Description</p>
-  </div>
-
-  <div class="gallery-item">
-    <img src="images/map3.png" alt="Map 3">
-    <p>Map 3 Description</p>
-  </div>
-
-  <!-- Add more maps here -->
-</div>
