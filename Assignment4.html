@@ -147,8 +147,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -172,15 +178,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="overview" class="level4">
-<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
 <p>In this remote sensing lab, I performed a supervised classification of a Landsat 9 satellite image of the southern Gulf Islands in British Columbia to map different land cover types (broadleaf forest, coniferous forest, exposed soil and rocks, high-density developed areas, low-density developed areas, non-forest vegetation, and water). The workflow combined QGIS for training data collection and R for image classification and accuracy assessment.</p>
-</section>
 <section id="collecting-training-data" class="level4">
 <h4 class="anchored" data-anchor-id="collecting-training-data">Collecting Training Data</h4>
 <p>The first step was to collect training data so the classification algorithm could learn how to classify the remaining pixels in the image. This involved drawing boundaries in QGIS around sample areas representing each land-cover class, using a combination of false colour composites and satellite imagery to distinguish between classes. Each class included several training areas to represent the range of pixel values associated with that land cover across the image. Figure 1 shows an example of the polygon-drawing process in QGIS, with the accompanying legend summarizing the number of polygons assigned to each class.</p>
 <img src="images/polygons.png" class="img-fluid">
-<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
 Figure 1. Delineation of training polygons in QGIS for seven land cover classes, showing the process of selecting Regions of Interest on the Landsat imagery.
 </figcaption>
 </section>
@@ -222,7 +227,7 @@ Figure 1. Delineation of training polygons in QGIS for seven land cover classes,
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">nSamples =</span> <span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <img src="images/land_cover_map.jpg" class="img-fluid">
-<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
 Figure 2. Landsat 9 image of the southern Gulf Islands classified into seven land cover types using the Maximum Likelihood Classification algorithm in R.
 </figcaption>
 </section>
@@ -230,7 +235,7 @@ Figure 2. Landsat 9 image of the southern Gulf Islands classified into seven lan
 <h4 class="anchored" data-anchor-id="accuracy-assessment">Accuracy Assessment</h4>
 <p>Figure 3 shows the confusion matrix, where the columns represent the reference classes and the rows represent the predictions from the classification model. The overall accuracy, as well as the User’s Accuracy (UA) and Producer’s Accuracy (PA) for each class, were calculated using the R code below. The classification achieved an overall accuracy of 96%, with the class-specific UA and PA metrics summarized in the table below.</p>
 <img src="images/confusion_matrix.jpg" class="img-fluid">
-<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
 Figure 3. Confusion matrix showing the classification results. Columns represent the reference classes and rows represent the predicted classes. Values are proportions of pixels classified correctly for each class.
 </figcaption>
 <div class="cell">
@@ -239,11 +244,12 @@ Figure 3. Confusion matrix showing the classification results. Columns represent
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>UA <span class="ot">=</span> <span class="fu">diag</span>(conf_matrix)<span class="sc">/</span><span class="fu">rowSums</span>(conf_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="images/accuracy_table.png" class="img-fluid"></p>
-<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
-Table 1. Accuracy metrics for the supervised classification. User’s Accuracy (UA) indicates the proportion of correctly classified pixels for each predicted class, Producer’s Accuracy (PA) indicates the proportion of correctly classified pixels for each reference class
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
+Table 1. Accuracy metrics for the supervised classification. User’s Accuracy (UA) indicates the proportion of correctly classified pixels for each predicted class, Producer’s Accuracy (PA) indicates the proportion of correctly classified pixels for each reference class.
 </figcaption>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

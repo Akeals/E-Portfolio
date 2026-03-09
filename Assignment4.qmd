@@ -2,21 +2,21 @@
 title: "Supervised Image Classification"
 ---
 
-#### Overview
+### Overview
 
 In this remote sensing lab, I performed a supervised classification of a Landsat 9 satellite image of the southern Gulf Islands in British Columbia to map different land cover types (broadleaf forest, coniferous forest, exposed soil and rocks, high-density developed areas, low-density developed areas, non-forest vegetation, and water). The workflow combined QGIS for training data collection and R for image classification and accuracy assessment.
 
-#### Collecting Training Data
+### Collecting Training Data
 
 The first step was to collect training data so the classification algorithm could learn how to classify the remaining pixels in the image. This involved drawing boundaries in QGIS around sample areas representing each land-cover class, using a combination of false colour composites and satellite imagery to distinguish between classes. Each class included several training areas to represent the range of pixel values associated with that land cover across the image. Figure 1 shows an example of the polygon-drawing process in QGIS, with the accompanying legend summarizing the number of polygons assigned to each class.
 
 ![](images/polygons.png) 
-<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
   Figure 1. Delineation of training polygons in QGIS for seven land cover classes, showing the process of selecting Regions of Interest on the Landsat imagery.
 </figcaption>
 
 
-#### Assign training and validation polygons
+### Assign training and validation polygons
 
 The polygons were then imported into R and split into training and validation datasets. Seventy percent of the polygons for each land-cover class were used as training data for the classification algorithm, while the remaining 30% were reserved for validation to assess classification accuracy.
 
@@ -44,7 +44,7 @@ poly_set <- rbind(poly_train,
 ```
 
 
-#### Land Cover Classification
+### Land Cover Classification
 
 
 Next, the supervised classification was performed in R using the Maximum Likelihood Classification (MLC) algorithm. This method assigns each pixel in the image to the land-cover class for which it has the highest probability of belonging, based on the spectral signatures derived from the training polygons. Figure 2 shows the resulting map of classified land cover types.
@@ -63,17 +63,17 @@ mlc_model <- superClass(img = ls_image,
 
 
 ![](images/land_cover_map.jpg) 
-<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
   Figure 2. Landsat 9 image of the southern Gulf Islands classified into seven land cover types using the Maximum Likelihood Classification algorithm in R.
 </figcaption>
 
 
-#### Accuracy Assessment
+### Accuracy Assessment
 
-Figure 3 shows the confusion matrix, where the columns represent the reference classes and the rows represent the predictions from the classification model. The overall accuracy, as well as the User’s Accuracy (UA) and Producer’s Accuracy (PA) for each class, were calculated using the R code below. The classification achieved an overall accuracy of 96%, with the class-specific UA and PA metrics summarized in the table below.
+Figure 3 shows the confusion matrix, where the columns represent the reference classes and the rows represent the predictions from the classification model. The overall accuracy, as well as the User's Accuracy (UA) and Producer's Accuracy (PA) for each class, were calculated using the R code below. The classification achieved an overall accuracy of 96%, with the class-specific UA and PA metrics summarized in the table below.
 
 ![](images/confusion_matrix.jpg)
-<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
   Figure 3. Confusion matrix showing the classification results. Columns represent the reference classes and rows represent the predicted classes. Values are proportions of pixels classified correctly for each class.
 </figcaption>
 
@@ -86,8 +86,7 @@ UA = diag(conf_matrix)/rowSums(conf_matrix)
 
 ![](images/accuracy_table.png)
 
-<figcaption style="font-size:0.9em; margin-bottom:1.5em; display:block;">
-  Table 1. Accuracy metrics for the supervised classification. User’s Accuracy (UA) indicates the proportion of correctly classified pixels for each predicted class, Producer’s Accuracy (PA) indicates the proportion of correctly classified pixels for each reference class
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
+  Table 1. Accuracy metrics for the supervised classification. User's Accuracy (UA) indicates the proportion of correctly classified pixels for each predicted class, Producer's Accuracy (PA) indicates the proportion of correctly classified pixels for each reference class.
 </figcaption>
-
   

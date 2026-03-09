@@ -1,84 +1,309 @@
 ---
-title: "Resume"
+title: ""
+format:
+  html:
+    toc: false
+    page-layout: full
 ---
 
+```{=html}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-# Education & Certificates  
-#### University of British Columbia  
-<span style="font-size:0.9em">*Vancouver, BC | 07/2025 - present*</span>  
-Masters of Geomatics for Environmental Management (MGEM)  
+<style>
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.4rem;
+    font-weight: 600;
+    color: var(--ink-dark, #3d2e28);
+    letter-spacing: -0.01em;
+    margin-bottom: 52px;
+  }
 
+  .resume-section {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0 52px;
+    padding: 38px 0;
+    border-top: 1.5px solid var(--divider, #e2d4c8);
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.55s ease forwards;
+  }
 
-#### Concordia University  
-<span style="font-size:0.9em">*Montreal, QC | 08/2023 | 05/2022*</span>  
-Graduate Diploma in Computer Science (GrDip)  
-Honours Bachelor of Environmental Science (BSc)  
+  .resume-section:last-child {
+    border-bottom: 1.5px solid var(--divider, #e2d4c8);
+  }
 
+  .resume-section:nth-child(1) { animation-delay: 0.05s; }
+  .resume-section:nth-child(2) { animation-delay: 0.15s; }
+  .resume-section:nth-child(3) { animation-delay: 0.25s; }
+  .resume-section:nth-child(4) { animation-delay: 0.35s; }
+  .resume-section:nth-child(5) { animation-delay: 0.45s; }
 
-#### Heritage College  
-<span style="font-size:0.9em">*Gatineau, QC | 05/2018* </span>  
-DEC in Sciences  
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
 
+  .section-label h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent, #c1714f);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    padding-top: 3px;
+    border: none;
+    margin: 0;
+  }
 
+  .section-body {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
 
-# Skills
+  .entry { display: flex; flex-direction: column; gap: 2px; }
 
-<span style="color:#FF6F61">★</span> Bilingual (English/French)  
-<span style="color:#6B5B95">★</span> GIS (ArcGIS Pro, QGIS)  
-<span style="color:#88B04B">★</span> Programming (Python, R, JavaScript)  
-<span style="color:#F7CAC9">★</span> Spatial data processing and analysis  
-<span style="color:#92A8D1">★</span> Strong verbal and written communication  
-<span style="color:#FFA500">★</span> Exceptional problem-solving
+  .entry-org {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: var(--ink-dark, #3d2e28);
+    line-height: 1.3;
+  }
 
+  .entry-role {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent, #c1714f);
+    letter-spacing: 0.025em;
+  }
 
+  .entry-meta {
+    font-size: 0.77rem;
+    color: var(--ink-muted, #8a7060);
+    font-style: italic;
+    margin-bottom: 5px;
+  }
 
-# Work Experience
+  .entry-degree {
+    font-size: 0.9rem;
+    color: var(--ink-mid, #5a4a42);
+    line-height: 1.55;
+  }
 
-<span style="font-size:1.5em">The Climate Reality Project Canada</span>  
-<span style="font-size:1.1em">Accounting & Administration Coordinator | May 2024 - present  
-Digital Content Coordinator | August 2023 – May 2024</span>  
-<span style="font-size:0.9em; font-style:italic;">Montreal, Quebec</span>  
+  .entry ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
 
-• Assisted with budget preparation, payroll management, and accounts payable/receivable, including processing payments and issuing cheques.  
-• Performed monthly bank reconciliation, prepared financial reports, and ensured compliance with IT and HR protocols.  
-• Created and edited digital content for social media, newsletters, and the website, including content in both English and French.  
-• Developed an interactive dashboard, providing a user-friendly interface for stakeholders to engage with important data.  
-• Managed large datasets by performing data cleaning, updating records in the database, and entering new data with a focus on accuracy and efficiency.
+  .entry ul li {
+    padding-left: 15px;
+    position: relative;
+    font-size: 0.87rem;
+    color: var(--ink-muted, #8a7060);
+    line-height: 1.65;
+  }
 
+  .entry ul li::before {
+    content: '·';
+    position: absolute;
+    left: 3px;
+    color: var(--accent, #c1714f);
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
 
-<span style="font-size:1.5em">Community Knowledge Exchange</span>  
-<span style="font-size:1.1em">Operations Coordinator</span>  
-<span style="font-size:0.9em; font-style:italic;">Remote | Ottawa, Ontario | 06/2022 – 08/2022</span>  
+  .cert-tag {
+    display: inline-block;
+    background: var(--accent-light, #f7ede6);
+    color: var(--accent-dark, #a05a3a);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    width: fit-content;
+  }
 
-• Collaborated closely with the managing director to develop and maintain values-aligned administrative processes.  
-• Supported the development and shaping of programming shifts towards a more community-centered and decolonial approach.  
-• Worked closely with team members to coordinate and track activities and contributions to the organization’s annual strategic goals.  
-• Identified fund and partnership opportunities, which included working with the team to develop engagement strategies.
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 40px;
+  }
 
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--ink-mid, #5a4a42);
+  }
 
-<span style="font-size:1.5em">Shared Services Canada</span>  
-<span style="font-size:1.1em">Project Management & Delivery Branch - Administrative Assistant to The Director</span>  
-<span style="font-size:0.9em; font-style:italic;">Remote | Ottawa, Ontario | 06/2019 – 08/2021</span>  
+  .skill-stars {
+    color: var(--accent, #c1714f);
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    opacity: 0.75;
+    flex-shrink: 0;
+  }
 
-• Monitored supervisor’s work calendar and scheduled appointments, meetings, and travel.  
-• Tracked the completion of key deliverables to ensure deadlines were met consistently.  
-• Monitored supervisor’s inbox and wrote emails on their behalf.  
-• Facilitated onboarding and offboarding of employees and consultants.  
-• Produced accurate office files, updated spreadsheets, and crafted presentations to support co-workers.  
-• Restocked supplies and placed purchase orders.
+  .award-title {
+    font-size: 0.91rem;
+    font-weight: 500;
+    color: var(--ink-dark, #3d2e28);
+  }
 
-# Awards & Honors
+  .award-year {
+    color: var(--ink-muted, #8a7060);
+    font-weight: 300;
+  }
 
-<span style="color:#FF6F61">★</span> **David Frost Memorial Scholarship (2022)**  
-For academic excellence in the Environmental Science Honours program.
+  .award-desc {
+    font-size: 0.84rem;
+    color: var(--ink-muted, #8a7060);
+    margin-top: 3px;
+  }
 
-<span style="color:#6B5B95">★</span> **Arts and Science Scholar, Department of Geography, Planning and Environment (2022)**  
-For being a top student (1%) in the department.
+  @media (max-width: 640px) {
+    .resume-section { grid-template-columns: 1fr; gap: 12px 0; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .page-title { font-size: 2.4rem; }
+  }
+</style>
 
+<h1 class="page-title">Resume</h1>
 
-# Volunteer Activities
+<!-- EDUCATION -->
+<div class="resume-section">
+  <div class="section-label"><h2>Education &amp;<br>Certificates</h2></div>
+  <div class="section-body">
 
-#### Moose Hide Campaign
-Indigenous grassroots anti-violence organization
+    <div class="entry">
+      <span class="entry-org">University of British Columbia</span>
+      <span class="entry-meta">Vancouver, BC &nbsp;·&nbsp; 07/2025 – present</span>
+      <span class="entry-degree">Masters of Geomatics for Environmental Management (MGEM)</span>
+    </div>
 
+    <div class="entry">
+      <span class="entry-org">Concordia University</span>
+      <span class="entry-meta">Montreal, QC &nbsp;·&nbsp; 05/2022 – 08/2023</span>
+      <span class="entry-degree">Graduate Diploma in Computer Science (GrDip)</span>
+      <span class="entry-degree">Honours Bachelor of Environmental Science (BSc)</span>
+    </div>
 
+    <div class="entry">
+      <span class="entry-org">Heritage College</span>
+      <span class="entry-meta">Gatineau, QC &nbsp;·&nbsp; 05/2018</span>
+      <span class="entry-degree">DEC in Sciences</span>
+    </div>
+
+    <div class="entry">
+      <span class="cert-tag">Certificate</span>
+      <span class="entry-org" style="font-size:1.02rem;">FME Academy — Safe Software</span>
+      <span class="entry-degree">Integrate Data with the FME Platform</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="resume-section">
+  <div class="section-label"><h2>Skills</h2></div>
+  <div class="section-body">
+    <div class="skills-grid">
+      <div class="skill-item"><span class="skill-stars">★★★</span>Bilingual — English / French</div>
+      <div class="skill-item"><span class="skill-stars">★★★</span>GIS (ArcGIS Pro, QGIS)</div>
+      <div class="skill-item"><span class="skill-stars">★★★</span>Programming — Python, R, JavaScript</div>
+      <div class="skill-item"><span class="skill-stars">★★★</span>Spatial data processing &amp; analysis</div>
+      <div class="skill-item"><span class="skill-stars">★★★</span>Verbal &amp; written communication</div>
+      <div class="skill-item"><span class="skill-stars">★★★</span>Exceptional problem-solving</div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK EXPERIENCE -->
+<div class="resume-section">
+  <div class="section-label"><h2>Work<br>Experience</h2></div>
+  <div class="section-body">
+
+    <div class="entry">
+      <span class="entry-org">The Climate Reality Project Canada</span>
+      <span class="entry-role">Accounting &amp; Administration Coordinator</span>
+      <span class="entry-meta">Montreal, QC &nbsp;·&nbsp; May 2024 – present</span>
+      <ul>
+        <li>Assisted with budget preparation, payroll management, and accounts payable/receivable, including processing payments and issuing cheques.</li>
+        <li>Performed monthly bank reconciliation, prepared financial reports, and ensured compliance with IT and HR protocols.</li>
+        <li>Created and edited digital content for social media, newsletters, and the website in both English and French.</li>
+        <li>Developed an interactive dashboard providing a user-friendly interface for stakeholders to engage with important data.</li>
+        <li>Managed large datasets through data cleaning, updating records, and entering new data with a focus on accuracy and efficiency.</li>
+      </ul>
+      <span class="entry-role" style="margin-top:12px;">Digital Content Coordinator</span>
+      <span class="entry-meta">August 2023 – May 2024</span>
+    </div>
+
+    <div class="entry">
+      <span class="entry-org">Community Knowledge Exchange</span>
+      <span class="entry-role">Operations Coordinator</span>
+      <span class="entry-meta">Remote — Ottawa, ON &nbsp;·&nbsp; 06/2022 – 08/2022</span>
+      <ul>
+        <li>Collaborated with the managing director to develop values-aligned administrative processes.</li>
+        <li>Supported programming shifts towards a more community-centred and decolonial approach.</li>
+        <li>Coordinated and tracked team activities aligned with the organization's annual strategic goals.</li>
+        <li>Identified funding and partnership opportunities and developed engagement strategies.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <span class="entry-org">Shared Services Canada</span>
+      <span class="entry-role">Administrative Assistant to the Director — Project Management &amp; Delivery</span>
+      <span class="entry-meta">Remote — Ottawa, ON &nbsp;·&nbsp; 06/2019 – 08/2021</span>
+      <ul>
+        <li>Monitored supervisor's calendar; scheduled appointments, meetings, and travel.</li>
+        <li>Tracked key deliverables to ensure consistent, on-time completion.</li>
+        <li>Managed supervisor's inbox and drafted correspondence on their behalf.</li>
+        <li>Facilitated onboarding and offboarding of employees and consultants.</li>
+        <li>Produced office files, updated spreadsheets, and crafted presentations to support the team.</li>
+        <li>Restocked supplies and placed purchase orders.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- AWARDS -->
+<div class="resume-section">
+  <div class="section-label"><h2>Awards &amp;<br>Honours</h2></div>
+  <div class="section-body">
+
+    <div class="entry">
+      <span class="award-title">David Frost Memorial Scholarship <span class="award-year">— 2022</span></span>
+      <p class="award-desc">For academic excellence in the Environmental Science Honours program.</p>
+    </div>
+
+    <div class="entry">
+      <span class="award-title">Arts and Science Scholar, Dept. of Geography, Planning &amp; Environment <span class="award-year">— 2022</span></span>
+      <p class="award-desc">Recognized as a top student (top 1%) in the department.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- VOLUNTEER -->
+<div class="resume-section">
+  <div class="section-label"><h2>Volunteer</h2></div>
+  <div class="section-body">
+    <div class="entry">
+      <span class="entry-org">Moose Hide Campaign</span>
+      <span class="entry-degree">Indigenous grassroots anti-violence organization</span>
+    </div>
+  </div>
+</div>
+```

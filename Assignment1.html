@@ -136,10 +136,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./Projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./content.html"> 
-<span class="menu-text">Content &amp; Deliverables</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -151,8 +147,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#ground-and-canopy-modeling" id="toc-ground-and-canopy-modeling" class="nav-link" data-scroll-target="#ground-and-canopy-modeling">Ground and Canopy Modeling</a></li>
+  <li><a href="#estimate-forest-attributes-model-development" id="toc-estimate-forest-attributes-model-development" class="nav-link" data-scroll-target="#estimate-forest-attributes-model-development">Estimate Forest Attributes &amp; Model Development</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -176,51 +180,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="overview" class="level4">
-<h4 class="anchored" data-anchor-id="overview">Overview</h4>
-<p>In this advanced remote sensing lab, raw lidar point cloud data was used to predict Above Ground Biomass (AGB) and dominant tree height across Alex Fraser Research Forest (AFRF). The workflow involved cleaning and processing the LiDAR data using the lidR package, generating key products such as Digital Elevation Models (DEMs) and Canopy Height Models (CHMs), and calculating plot-level LiDAR metrics. These metrics were then used to develop a statistical model, which was applied to produce wall-to-wall predictions of AGB and dominant tree height across the forest.</p>
-</section>
-<section id="basic-lidar-processing" class="level4">
-<h4 class="anchored" data-anchor-id="basic-lidar-processing">Basic Lidar Processing</h4>
-<p>The raw LiDAR point cloud data, provided as multiple .las tiles, were loaded into a LAS catalog to enable processing all tiles together. The dataset was inspected for quality issues, and duplicate points were removed to ensure accurate analysis.</p>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<p>In this advanced remote sensing lab, raw lidar point cloud data was used to predict Above Ground Biomass (AGB) and dominant tree height across Alex Fraser Research Forest (AFRF). The workflow involved cleaning and processing the LiDAR data using the lidR package, generating key products such as Digital Elevation Models (DEMs) and Canopy Height Models (CHMs), and calculating plot-level LiDAR metrics. These metrics were then used to develop a statistical model, which was applied to produce wall-to-wall predictions of AGB and dominant tree height across the forest. ### Basic Lidar Processing The raw LiDAR point cloud data, provided as multiple .las tiles, were loaded into a LAS catalog to enable processing all tiles together. The dataset was inspected for quality issues, and duplicate points were removed to ensure accurate analysis.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lidR)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create LAScatalog object from AFRF las tiles</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>cat_afrf <span class="ot">&lt;-</span> <span class="fu">readLAScatalog</span>(<span class="st">"Data/LAS"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the LAScatalog for potential issues</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">las_check</span>(cat_afrf)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove duplicate points to improve processing efficiency</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>filtered_cat_afrf <span class="ot">&lt;-</span> <span class="fu">filter_duplicates</span>(cat_afrf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create LAScatalog object from AFRF las tiles</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>cat_afrf <span class="ot">&lt;-</span> <span class="fu">readLAScatalog</span>(<span class="st">"Data/LAS"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect the LAScatalog for potential issues</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">las_check</span>(cat_afrf)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove duplicate points to improve processing efficiency</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>filtered_cat_afrf <span class="ot">&lt;-</span> <span class="fu">filter_duplicates</span>(cat_afrf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="ground-and-canopy-modeling" class="level4">
-<h4 class="anchored" data-anchor-id="ground-and-canopy-modeling">Ground and Canopy Modeling</h4>
+<section id="ground-and-canopy-modeling" class="level3">
+<h3 class="anchored" data-anchor-id="ground-and-canopy-modeling">Ground and Canopy Modeling</h3>
 <p>Next, a Digital Elevation Model (DEM) was generated to represent the ground surface, allowing separation of ground points from vegetation and other non-ground features. The DEM was created using the tin() algorithm and rasterize_terrain() function. Because the raw LiDAR data was not normalized, the DEM was used to normalize the point cloud, which was then used to produce a Canopy Height Model (CHM) using the p2r (point-to-raster) method.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create DEM with tin algorithm</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dem_afrf <span class="ot">&lt;-</span> <span class="fu">rasterize_terrain</span>(filtered_cat_afrf, <span class="dv">2</span>, <span class="fu">tin</span>())</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#normalize all tiles in cat_afrf with the DEM </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>norm_tiles_afrf <span class="ot">&lt;-</span> <span class="fu">normalize_height</span>(filtered_cat_afrf, dem_afrf)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Create CHM for all normalized AFRF Tiles using p2r algorithm</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>chm_afrf <span class="ot">&lt;-</span> <span class="fu">rasterize_canopy</span>(norm_cat_afrf, <span class="dv">2</span>, <span class="fu">p2r</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#normalize all tiles in cat_afrf with the DEM </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>norm_tiles_afrf <span class="ot">&lt;-</span> <span class="fu">normalize_height</span>(filtered_cat_afrf, dem_afrf)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Create CHM for all normalized AFRF Tiles using p2r algorithm</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>chm_afrf <span class="ot">&lt;-</span> <span class="fu">rasterize_canopy</span>(norm_cat_afrf, <span class="dv">2</span>, <span class="fu">p2r</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="images/DEM_plot.png" class="img-fluid" alt="DEM of AFRF"> <em>Figure 1: Digital Elevation Model (DEM) of AFRF</em></p>
-<p><img src="images/CHM_plot.png" class="img-fluid" alt="CHM of AFRF"> <em>Figure 2: Canopy Height Model (CHM) of AFRF</em></p>
+<img src="images/DEM_plot.png" class="img-fluid">
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
+Figure 1. Digital Elevation Model (DEM) of AFRF.
+</figcaption>
+<img src="images/CHM_plot.png" class="img-fluid">
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
+Figure 2. Canopy Height Model (CHM) of AFRF.
+</figcaption>
 </section>
-<section id="estimate-forest-attributes-model-development" class="level4">
-<h4 class="anchored" data-anchor-id="estimate-forest-attributes-model-development">Estimate Forest Attributes &amp; Model Development</h4>
+<section id="estimate-forest-attributes-model-development" class="level3">
+<h3 class="anchored" data-anchor-id="estimate-forest-attributes-model-development">Estimate Forest Attributes &amp; Model Development</h3>
 <p>To estimate forest attributes, 38 plots were extracted across the study area, each with a radius of 30 meters. For each plot, a set of standard LiDAR metrics was calculated using the cloud_metrics() function from the lidR package. These metrics summarize key structural properties of the forest, including canopy height percentiles, variability in height, and point cloud density.</p>
 <p>The resulting plot-level metrics were then used as predictors to develop statistical models for predicting Above-Ground Biomass (AGB) and dominant tree height. Models were built using forward selection with the add1() function, and the significance of each predictor was evaluated with an F-test. Collinearity was also considered, and highly correlated variables were excluded.</p>
 <p>For AGB, the most significant predictors were zq90 (90th height percentile) and zentropy (canopy complexity). For dominant tree height, the most significant predictors were zq75 (75th height percentile) and pzabove2 (proportion of returns above 2 m).</p>
-<p>Model 1 formula: Total_AGB = 609,811 + 16,293·zq90 - 975,484·zentropy Model 2 formula: Dominant_Height = 3.55544 + 0.91019·zq95</p>
+<p>Model 1 formula: Total_AGB = 609,811 + 16,293·zq90 - 975,484·zentropy</p>
+<p>Model 2 formula: Dominant_Height = 3.55544 + 0.91019·zq95</p>
 <p>These models were then applied to the full LiDAR dataset to generate wall-to-wall predictions of AGB and dominant tree height across the forest.</p>
-<p><img src="images/AGB.png" class="img-fluid"> <em>Figure 3: Total Predicted Above Ground Biomass across AFRF</em></p>
-<p><img src="images/DH.png" class="img-fluid"> <em>Figure 3: Total Predicted Dominant Height across AFRF</em></p>
+<img src="images/AGB.png" class="img-fluid">
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
+Figure 3. Total Predicted Above Ground Biomass across AFRF.
+</figcaption>
+<img src="images/DH.png" class="img-fluid">
+<figcaption style="font-size:0.85em; margin-bottom:1.5em; display:block; color:#8a7060; font-style:italic;">
+Figure 4. Total Predicted Dominant Height across AFRF.
+</figcaption>
 
 
 </section>

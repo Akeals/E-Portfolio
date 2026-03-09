@@ -29,8 +29,8 @@ css: styles.css
 
   .project-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 14px 36px rgba(94,148,112,0.13);
-    border-color: #5e9470;
+    box-shadow: 0 14px 36px rgba(193,113,79,0.13);
+    border-color: #c1714f;
   }
 
   .card-image-wrap {
@@ -57,7 +57,7 @@ css: styles.css
     position: absolute;
     top: 0.85rem;
     left: 0.85rem;
-    background: rgba(94,148,112,0.88);
+    background: rgba(193,113,79,0.88);
     color: #fff;
     font-size: 0.65rem;
     font-weight: 600;
@@ -109,13 +109,13 @@ css: styles.css
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #5e9470;
+    color: #c1714f;
     text-decoration: none;
     transition: color 0.2s, gap 0.2s;
   }
 
   .project-card:hover .card-cta {
-    color: #4a7a5c;
+    color: #a05a3a;
     gap: 0.6rem;
   }
 
@@ -209,7 +209,7 @@ css: styles.css
       <span class="card-tag">Remote Sensing & GIS</span>
     </div>
     <div class="card-body">
-      <h3 class="card-title">Supervised Image CLassification</h3>
+      <h3 class="card-title">Supervised Image Classification</h3>
       <p class="card-desc">Classifying seven land cover classes across the Southern Gulf Islands using a supervised image classification approach.</p>
       <span class="card-cta">View project →</span>
     </div>
@@ -217,4 +217,3 @@ css: styles.css
 
 </div>
 ```
-
