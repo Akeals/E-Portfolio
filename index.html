@@ -112,14 +112,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -127,19 +121,99 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="hero">
-<p><img src="images/Abbey_headshot.jpg" class="profile-img"></p>
-<h1>
-Abbey Kealey
-</h1>
-<p class="hero-links">
-<a href="https://www.linkedin.com/in/abbey-kealey-405473204/">LinkedIn</a> | <a href="mailto:abbeykealey@gmail.com">Email</a>
-</p>
+<style>
+  .hero-top {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid #e8ddd5;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #e8c9b8;
+    flex-shrink: 0;
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+  }
+
+  .hero-name {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #3d2e28;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    color: #c1714f;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .hero-links a {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #c1714f;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-links a::before {
+    content: '→ ';
+  }
+
+  .hero-links a:hover {
+    color: #a05a3a;
+    text-decoration: underline;
+  }
+
+  .hero-bottom {
+    padding: 1.75rem 0 2.5rem;
+    max-width: 100%;
+  }
+
+  .hero-divider {
+    width: 36px;
+    height: 2px;
+    background: #e8c9b8;
+    border-radius: 2px;
+    margin-bottom: 1.1rem;
+  }
+
+  .hero-bio {
+    font-size: 1rem;
+    color: #7a6458;
+    line-height: 1.85;
+    max-width: 780px;
+  }
+</style>
+
+<div class="hero-top">
+  <img class="profile-img" src="images/Abbey_headshot.jpg" alt="Abbey Kealey">
+  <div class="hero-top-text">
+    <div class="hero-name">Abbey Kealey</div>
+    <div class="hero-tagline">MGEM Student · UBC</div>
+    <div class="hero-links">
+      <a href="https://www.linkedin.com/in/abbey-kealey-405473204/">LinkedIn</a>
+      <a href="mailto:abbeykealey@gmail.com">Email</a>
+    </div>
+  </div>
 </div>
-<section id="about-me" class="level2 bio">
-<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
-<p>I’m a Master of Geomatics for Environmental Management (MGEM) student at UBC with a background in environmental and computer science.</p>
-</section>
+
+<div class="hero-bottom">
+  <div class="hero-divider"></div>
+  <p class="hero-bio">Welcome to my e-portfolio! I'm Abbey, a graduate student at UBC completing my Master of Geomatics for Environmental Management. With a background in environmental and computer science, I'm interested in how technology and spatial data can help us understand and care for the natural world. This portfolio documents where that interest has taken me throughout my degree. I hope you enjoy exploring it!</p>
+</div>
 
 
 

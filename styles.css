@@ -1,53 +1,53 @@
 /* ── Colour palette ── */
 :root {
-  --sage: #5e9470;
-  --sage-dark: #4a7a5c;
-  --sage-light: #eaf3ee;
+  --accent: #c1714f;
+  --accent-dark: #a05a3a;
+  --accent-light: #f7ede6;
 }
 
 /* ── Page background & base ── */
 body {
-  background-color: #f8f8f7;
+  background-color: #faf7f4;
   font-family: "Inter", "Segoe UI", sans-serif;
-  color: #444;
+  color: #5a4a42;
 }
 
 /* ── Paragraph & list text ── */
 p, li {
-  color: #555;
+  color: #7a6458;
 }
 
 /* ── Headings ── */
 h1, h2, h3 {
-  color: #222;
+  color: #3d2e28;
   font-weight: 600;
 }
 
 /* ── Links ── */
 a {
-  color: var(--sage);
+  color: var(--accent);
 }
 a:hover {
-  color: var(--sage-dark);
+  color: var(--accent-dark);
 }
 
 /* ── Navbar ── */
 .navbar {
-  background-color: #f8f8f7;
-  border-bottom: 1px solid #e4e4e1;
+  background-color: #faf7f4;
+  border-bottom: 1px solid #e8ddd5;
 }
 .navbar-brand {
-  color: #222 !important;
+  color: #3d2e28 !important;
   font-weight: 600;
 }
 .navbar a {
-  color: #666 !important;
+  color: #8a7060 !important;
 }
 .navbar a:hover {
-  color: var(--sage) !important;
+  color: var(--accent) !important;
 }
 .navbar a.active {
-  color: var(--sage) !important;
+  color: var(--accent) !important;
   font-weight: 500;
 }
 
@@ -60,18 +60,21 @@ a:hover {
 
 /* ── Circular profile image ── */
 .profile-img {
-  width: 220px;
-  height: 220px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #e4e4e1;
+  border: 4px solid #e8c9b8;
+  flex-shrink: 0;
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0);
 }
 
 /* ── Name styling ── */
 .hero h1 {
   margin-top: 20px;
   font-weight: 600;
-  color: #222;
+  color: #3d2e28;
 }
 
 /* ── Hero links ── */
@@ -82,11 +85,11 @@ a:hover {
 .hero-links a {
   text-decoration: none;
   font-weight: 500;
-  color: var(--sage);
+  color: var(--accent);
 }
 .hero-links a:hover {
   text-decoration: underline;
-  color: var(--sage-dark);
+  color: var(--accent-dark);
 }
 
 /* ── Bio ── */
@@ -94,5 +97,5 @@ a:hover {
   max-width: 700px;
   margin: 0 auto;
   font-size: 0.95em;
-  color: #666;
+  color: #8a7060;
 }
